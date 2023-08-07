@@ -36,6 +36,7 @@ Note:
   
 5. Initialize the nodes with the genesis file
 * geth init --datadir node1 genesis.json
+
 * geth init --datadir node2 genesis.json
 
 6. For configuring the bootnode, create a key for the bootnode and save it to boot.key in the folder
@@ -56,4 +57,5 @@ Note:
 - In each terminal, run the following command (replacing node1 with node2, node3 wherever appropriate, and giving each node a different --port and authrpc.port IDs. 
 - The account address and password file for node 1, node 2, and node 3 must be provided.
 
-4. On the fourth Terminal, attach a Javascript console to either node to query the network properties:
+4. On the fourth Terminal, attach a Javascript console to Node 1
+* geth attach node1/geth.ipc
