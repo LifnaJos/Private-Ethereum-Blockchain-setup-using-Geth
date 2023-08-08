@@ -29,14 +29,14 @@
 ![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_account.png)
 Note : 
 - This command will prompt you to enter a passphrase and generates Public and Private Keys.
-- For future reference, save the keypair in the file [**network_keypair.txt**](https://github.com/LifnaJos/private_ethereum_setup/blob/main/network_keypair)
+- For future reference, save the keypair in the file [**network_keypair.txt**](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/network_keypair)
 - For each node, save the password in a file, **password.txt** : 
-[Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node1/password)   [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node2/password)
+[Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node1/password)   [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node2/password)
 
 **4. Create a **genesis.json** file in the folder, **private_ethereum_setup****
 
 Note:
-- Download the [genesis.json](https://github.com/LifnaJos/private_ethereum_setup/blob/main/genesis.json) file from the repository
+- Download the [genesis.json](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/genesis.json) file from the repository
 - Edit the **alloc** parameter in the file with the public keys of the accounts created
 
 ![alloc](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/alloc_field.png)
