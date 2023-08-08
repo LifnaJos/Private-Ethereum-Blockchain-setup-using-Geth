@@ -143,7 +143,8 @@ Note:
 
 ![Geth_explore]()
 
-**10. Perform Transactions between peers in the network** : eth.sendTransaction({from:"0x98608ADf9c785d54f40cDcf6700E990771b19226", to:"0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C", value: web3.toWei(10, "ether"), gas:30000})
+**10. Perform Transactions between peers in the network** : 
+* eth.sendTransaction({from:"0x98608ADf9c785d54f40cDcf6700E990771b19226", to:"0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C", value: web3.toWei(10, "ether"), gas:30000})
 
 **Note:** The response will the hash of the transaction
 
