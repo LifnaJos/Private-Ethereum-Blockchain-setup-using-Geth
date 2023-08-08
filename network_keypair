@@ -1,9 +1,9 @@
 Node 1
 password : node1
-Public address of the key:   0x98944e0F0Dea3A6580aAF489D8b415A2be18feef
-Path of the secret key file: node1/keystore/UTC--2023-08-08T09-04-38.141624824Z--98944e0f0dea3a6580aaf489d8b415a2be18feef
+Public address of the key:   0x98608ADf9c785d54f40cDcf6700E990771b19226
+Path of the secret key file: node1/keystore/UTC--2023-08-08T11-00-47.548531978Z--98608adf9c785d54f40cdcf6700e990771b19226
 
 Nod 2
 password : node2
-Public address of the key:   0xb97355dfAF6e6802D4b2f71c2547Fe1d95a9d6AF
-Path of the secret key file: node2/keystore/UTC--2023-08-08T09-05-12.167229406Z--b97355dfaf6e6802d4b2f71c2547fe1d95a9d6af
+Public address of the key:   0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C
+Path of the secret key file: node2/keystore/UTC--2023-08-08T11-01-10.149482285Z--7b25e791d24a3f5c453a9e5468cf6cea2243092c
