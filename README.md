@@ -104,11 +104,13 @@ Note:
 ## Step - 5 : Exploring the network by attaching Javascript console to Node 1
 * geth attach node1/geth.ipc
 
+![Geth](https://github.com/LifnaJos/private_ethereum_setup/blob/main/geth_ipc.png)
+
 **1. Fetch network status**
-* > net.peerCount
+* net.peerCount
 
 **2. Fetch the details of the peers in the network**
-* > admin.peers
+* admin.peers
 
 **3. To list the nodes in the network**
 * > eth.accounts
