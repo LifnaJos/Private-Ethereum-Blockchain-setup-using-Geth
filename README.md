@@ -7,63 +7,100 @@
 ## Step - 2 : Check the version of Geth on the Terminal
 * geth version
 
+![Geth_version](https://github.com/LifnaJos/private_ethereum_setup/blob/main/geth_version.png)
+
 ## Step - 3 : Create a Private Ethereum Network
-
-**Method - 1** : Clone the private_ethereum_setup.git
-
-**Method - 2** : Follow the steps to create nodes in the Private Ethereum Network
-1. Create a folder named, private_ethereum_setup :
+**1. Create a folder named, private_ethereum_setup :**
 * mkdir private_ethereum_setup
 
-2. Create 2 subfolders named node1 and node2 in the folder **private_ethereum_setup**
+**2. Create 2 subfolders named node1 and node2 in the folder **private_ethereum_setup****
 * cd private_ethereum_setup   
 * mkdir node1 node2
-   
-3. Create 2 accounts in the folder corresponding to node1 and node2
+  
+![Folder_structure](https://github.com/LifnaJos/private_ethereum_setup/blob/main/folder_0.png)
+  
+**3. Create 2 accounts in the folder corresponding to node1 and node2**
 * geth --datadir "node1" account new
+
+![Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_1_account.png)
+
 * geth --datadir "node2" account new
-   
+
+![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_2_account.png)
 Note : 
 - This command will prompt you to enter a passphrase and generates Public and Private Keys.
-- For future reference, save the keypair in the file **network_keypair.txt**
-- For each node, save the password in a file, **password.txt**
+- For future reference, save the keypair in the file [**network_keypair.txt**](https://github.com/LifnaJos/private_ethereum_setup/blob/main/network_keypair)
+- For each node, save the password in a file, **password.txt** : 
+[Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node1/password)   [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node2/password)
 
-4. Create a **genesis.json** file in the folder, **private_ethereum_setup**
+**4. Create a **genesis.json** file in the folder, **private_ethereum_setup****
 
 Note:
-- Download the file from the repository
+- Download the [genesis.json](https://github.com/LifnaJos/private_ethereum_setup/blob/main/genesis.json) file from the repository
 - Edit the **alloc** parameter in the file with the public keys of the accounts created
-  
-5. Initialize the nodes with the genesis file
+
+![alloc](https://github.com/LifnaJos/private_ethereum_setup/blob/main/alloc_field.png)
+
+- Edit the **extradata** withe public key of the signer.
+- Here, its with the public key of Node 1
+
+![extra](https://github.com/LifnaJos/private_ethereum_setup/blob/main/extradata.png)
+
+**5. Initialize the nodes with the genesis file**
 * geth init --datadir node1 genesis.json
+
+![Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_1_init.png)
 
 * geth init --datadir node2 genesis.json
 
-6. For configuring the bootnode, create a key for the bootnode and save it to boot.key in the folder
+![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_2_init.png)
+
+**6. For configuring the bootnode**
+- Create a key for the bootnode and save it to boot.key in the folder
 * bootnode -genkey boot.key
- 
+
+![Folder_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/folder_1.png)
+
 ## Step - 4 :  Establish a Peer-Peer Connection between the nodes along with the bootnode
-1. On the first Terminal, Use **boot.key** to run the bootnode :
+**1. On the first Terminal, Use **boot.key** to run the bootnode :**
 * bootnode -nodekey boot.key -verbosity 9 -addr :30305
 
-**Note:**
-- Open separate terminals for each node, leaving the bootnode running on the first terminal. 
-- In each terminal, run the following command (replacing node1 with node2, node3 wherever appropriate, and giving each node a **different** --port and authrpc.port IDs. 
-- The **account address** and **password** file for node 1, node 2, and node 3 must be provided.
+![Bootnode](https://github.com/LifnaJos/private_ethereum_setup/blob/main/bootnode_running.png)
 
-2. On the second Terminal, Run Node 1
-* geth --datadir node1 --port **30306** --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock **0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb** --password **node1/password** --authrpc.port **8551** --miner.etherbase **0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb** --mine
+**Note:**
+- Open separate terminals for each node, leaving the bootnode running on the first terminal.
+- Bootnode is waiting for the Peers to join the network
+- In each terminal, run the following command (replacing node1 with node2, node3 wherever appropriate)
+- Give each node a **different** IDs for --port and authrpc.port
+- The **account address** and **password** file for node 1, node 2, and node 3 must be provided.
+- Provide the enode details of the bootnode generated in the step while running Node1 and Node2
+
+**2. On the second Terminal, Run Node 1**
+* geth --datadir **node1** --port **30306** --bootnodes **enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305** --networkid 123454321 --unlock **0x98608ADf9c785d54f40cDcf6700E990771b19226** --password **node1**/password --authrpc.port **8551** --miner.etherbase **0x98608ADf9c785d54f40cDcf6700E990771b19226** --mine
+
+![Node_1_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_1_run.png)
+
+- Node 1 starts mining
+
+![Node_1_mine](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_1_mining.png)
 
 **Note:**
 - In this experiment, we are making Node 1, as the validator to mine the blocks. So, explicitly mention that miner.etherbase with the public address of Node 1.
 - The mining starts as soon as this node is up.
 
-3. On the third Terminal, Run Node 2
-* geth --datadir node2 --port **30307** --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock **0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb** --password **node2/password** --authrpc.port **8552**
+**3. On the third Terminal, Run Node 2**
+* geth --datadir **node2** --port **30307** --bootnodes **enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305** --networkid 123454321 --unlock **0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C** --password **node2**/password --authrpc.port **8552**
 
-**Note:**
+![Node_2_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_2_run.png)
+
 - Node 2, receives the mined details on its terminal
 
+![Node_2_update](https://github.com/LifnaJos/private_ethereum_setup/blob/main/node_2_update.png)
+
+- Bootnode track the logs of Peers in the network
+
+![Bootnod_update](https://github.com/LifnaJos/private_ethereum_setup/blob/main/boot_node_update.png)
+  
 ## Step - 5 : Exploring the network by attaching Javascript console to Node 1
 * geth attach node1/geth.ipc
 
