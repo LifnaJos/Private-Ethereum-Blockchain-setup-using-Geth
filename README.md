@@ -46,16 +46,69 @@ Note:
 1. On the first Terminal, Use **boot.key** to run the bootnode :
 * bootnode -nodekey boot.key -verbosity 9 -addr :30305
 
+**Note:**
+- Open separate terminals for each node, leaving the bootnode running on the first terminal. 
+- In each terminal, run the following command (replacing node1 with node2, node3 wherever appropriate, and giving each node a **different** --port and authrpc.port IDs. 
+- The **account address** and **password** file for node 1, node 2, and node 3 must be provided.
+
 2. On the second Terminal, Run Node 1
-* geth --datadir node1 --port 30306 --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb --password node1/password --authrpc.port 8551 --miner.etherbase 0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb --mine
+* geth --datadir node1 --port **30306** --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock **0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb** --password **node1/password** --authrpc.port **8551** --miner.etherbase **0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb** --mine
+
+**Note:**
+- In this experiment, we are making Node 1, as the validator to mine the blocks. So, explicitly mention that miner.etherbase with the public address of Node 1.
+- The mining starts as soon as this node is up.
 
 3. On the third Terminal, Run Node 2
-* geth --datadir node2 --port 30307 --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb --password node2/password --authrpc.port 8552
+* geth --datadir node2 --port **30307** --bootnodes enode://e8fbf28286a8bc26e53cbe61c4bef720b2d844b74aca3260517a57502732bb2871a0dc20cb019a2696a0690507a60c54b99fe6030924923267d6cbb9e9d4a2a9@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock **0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb** --password **node2/password** --authrpc.port **8552**
 
-Note:
-- Open separate terminals for each node, leaving the bootnode running in the original terminal. 
-- In each terminal, run the following command (replacing node1 with node2, node3 wherever appropriate, and giving each node a different --port and authrpc.port IDs. 
-- The account address and password file for node 1, node 2, and node 3 must be provided.
+**Note:**
+- Node 2, receives the mined details on its terminal
 
-4. On the fourth Terminal, attach a Javascript console to Node 1
+## Step - 5 : Exploring the network by attaching Javascript console to Node 1
 * geth attach node1/geth.ipc
+
+**1. Fetch network status**
+* > net.peerCount
+
+**2. Fetch the details of the peers in the network**
+* > admin.peers
+
+**3. To list the nodes in the network**
+* > eth.accounts
+
+**4. To check the balance of the accounts associated with the Node**
+* > web3.fromWei(eth.getBalance("**0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb**"), "ether")
+Here, the response will be in ethers
+* > eth.getBalance(eth.accounts[0])
+Here, the balance will be in wei
+Here, **0x2EC436918AfE50376b0a7454f6E0987fF0eFECbb** : Public address of the account in Node 1
+
+**5. To check the account balance of the peer machine, provide their Public Key**
+* > eth.getBalance("**0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb**")
+Here, **0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb** : Public address of the account in Node 2.
+
+**6. Perform Transactions between peers in the network**
+* > eth.sendTransaction({from:"0x2ec436918afe50376b0a7454f6e0987ff0efecbb",
+to:"0x629B332FBBCAE2eB49da020dA66fa8f4faB11EFb", value: web3.toWei(10,
+"ether"), gas:30000})
+Here, the response will the hash of the transaction
+
+**7. To check the details of the transaction**
+- Go to Terminal 2, where Node 1 is running and mining the blocks
+
+**8. To get the details of the block in which the transaction is added**
+* > web3.eth.getTransaction("**0x97dcc5cd3f903ad988faea6998795118df5e7105876fd7776c53c2021233b1ab**")
+Here, **0x97dcc5cd3f903ad988faea6998795118df5e7105876fd7776c53c2021233b1ab** : Hash of the Transaction
+
+**8. To check the contents in the Mempool - Transaction Pool**
+- Perform a set of 5 transactions as discussed above in step 6
+- Then, check the mempool
+* > txpool.content
+
+**9. To check the status of the Mempool - Transaction Pool**
+* > txpool.status
+
+**10. To check the transactions initiated by a client, which are in the pool**
+* > txpool.contentFrom("**0x2ec436918afe50376b0a7454f6e0987ff0efecbb**")
+Here, **0x2ec436918afe50376b0a7454f6e0987ff0efecbb** : Public address of the account in Node
+
