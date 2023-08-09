@@ -141,7 +141,7 @@ Note:
 
 **9. Fetch the details of the peers in the network** : admin.peers
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_4.png)
 
 **10. Perform Transactions between peers in the network** : 
 * eth.sendTransaction({from:"0x98608ADf9c785d54f40cDcf6700E990771b19226", to:"0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C", value: web3.toWei(10, "ether"), gas:30000})
@@ -153,7 +153,7 @@ Note:
 
 * web3.fromWei(eth.getBalance("**0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C**"), "ether")
   
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_5.png)
 
 **12. To check the details of the transaction on Node 1 Terminal**
 
@@ -164,19 +164,19 @@ Note:
 
 **Note:** 0x97dcc5cd3f903ad988faea6998795118df5e7105876fd7776c53c2021233b1ab : Hash of the Transaction
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_node_1_explore.png)
 
 **14. To check the contents in the Mempool - Transaction Pool** : txpool.content
 
 **Note:** Perform a set of 5 transactions as discussed in the above step and then, check the mempool
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_8.png)
 
 **15. To check the status of the Mempool - Transaction Pool** : txpool.status
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_7.png)
 
 **10. To check the transactions initiated by a client, which are in the pool** : txpool.contentFrom("**0x98608ADf9c785d54f40cDcf6700E990771b19226**")
 **Note:** 0x98608ADf9c785d54f40cDcf6700E990771b19226 : Public address of the account in Node
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_9.png)
