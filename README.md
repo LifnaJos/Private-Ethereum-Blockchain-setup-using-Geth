@@ -130,7 +130,7 @@ Note:
 
 ![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_2.png)
 
-**7. To fetch the details of a specific block** : eth.getBlock(**<blockNo>**)
+**7. To fetch the details of a specific block** : eth.getBlock(**< blockNo >**)
 
 ![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_3.png)
 
