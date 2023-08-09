@@ -157,14 +157,14 @@ Note:
 
 **12. To check the details of the transaction on Node 1 Terminal**
 
-![Geth_explore]()
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_node_1_explore.png)
 
 **13. To get the details of the block in which the transaction is added** :
 * web3.eth.getTransaction("**0x97dcc5cd3f903ad988faea6998795118df5e7105876fd7776c53c2021233b1ab**")
 
 **Note:** 0x97dcc5cd3f903ad988faea6998795118df5e7105876fd7776c53c2021233b1ab : Hash of the Transaction
 
-![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_node_1_explore.png)
+![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_6.png)
 
 **14. To check the contents in the Mempool - Transaction Pool** : txpool.content
 
