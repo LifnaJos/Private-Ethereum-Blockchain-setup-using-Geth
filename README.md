@@ -180,3 +180,7 @@ Note:
 **Note:** 0x98608ADf9c785d54f40cDcf6700E990771b19226 : Public address of the account in Node
 
 ![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_9.png)
+
+## Acknowledgement
+![Go Ethereum Documentation](https://geth.ethereum.org/docs/fundamentals/private-network)
+![Go Ethereum - Github Developers Community](https://github.com/ethereum/go-ethereum/issues/27850) for helping me in resolving the issues in performing the mining on Private Ethereum Network setup using Geth.
