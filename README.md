@@ -112,6 +112,9 @@ geth --datadir node2 --port 30307 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68
 ![Bootnod_update](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/boot_node_update.png)
   
 ## Step - 5 : Exploring the network by attaching Javascript console to Node 1
+
+Open the fourth terminal and attach the JavaScript Console with Node 1
+
 ```
 geth attach node1/geth.ipc
 ```
