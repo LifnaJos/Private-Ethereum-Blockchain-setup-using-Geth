@@ -4,7 +4,8 @@
 3. Add the Ethereum repository : ```sudo add-apt-repository -y ppa:ethereum/ethereum ```
 4. Update your package list : ```sudo apt update ```
 5. Install Geth: ``` sudo apt-get install ethereum ```
-6. 
+
+```
 sudo apt-get upgrade geth
 ```
 ## Step - 2 : Check the version of Geth on the Terminal
