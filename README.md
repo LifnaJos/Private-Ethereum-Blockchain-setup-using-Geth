@@ -1,11 +1,32 @@
-## Step - 1 : Installing Geth on Ubuntu
-1. Update your package list :  ``` sudo apt-get update ```
-2. Install dependencies : ``` sudo apt install -y software-properties-common ```
-3. Add the Ethereum repository : ```sudo add-apt-repository -y ppa:ethereum/ethereum ```
-4. Update your package list : ```sudo apt update ```
-5. Install Geth: ``` sudo apt-get install ethereum ```
-
+## Step - 0 : Remove an existing version of geth
+1. Remove the current Geth package : ```sudo apt remove --purge -y ethereum ```
+2. Clean up the residual files :
 ```
+sudo apt autoremove -y
+sudo apt clean
+```
+3. Verify Geth is uninstalled: ``` geth version ```
+4. Locate any remaining Geth binaries: ``` which geth ```
+5. Manually remove the Geth binary : ``` sudo rm -rf /usr/local/bin/geth ```
+6. Verify that Geth is no longer present: ``` geth version ```
+   
+## Step - 1 : Commands for installing Geth on Ubuntu
+1. Navigate to the directory where you want to download Geth: ``` cd /usr/local/bin ```
+2. Check the Architecture : ``` dpkg --print-architecture ```
+3. Download the specific version of [Geth 1.12](https://geth.ethereum.org/downloads) :
+``` sudo wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.12.0-e501b3b0.tar.gz ```
+5. Extract the downloaded tar file: ``` sudo tar -xvf geth-linux-amd64-1.12.0-e501b3b0.tar.gz ```
+6. Move the extracted binary to a directory in your PATH: ``` sudo mv geth-linux-amd64-1.12.0-e501b3b0/geth /usr/local/bin/geth ```
+7. Remove the downloaded and extracted files: ``` sudo rm -rf geth-linux-amd64-1.12.0-e501b3b0.tar.gz geth-linux-amd64-1.12.0-e501b3b0 ```
+8. Verify the installation :  ``` geth version ```
+   
+==============Old Steps for Installing Geth===================
+```
+sudo apt-get update
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt update
+sudo apt-get install ethereum
 sudo apt-get upgrade geth
 ```
 ## Step - 2 : Check the version of Geth on the Terminal
