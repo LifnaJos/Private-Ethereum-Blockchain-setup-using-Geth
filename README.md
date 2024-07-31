@@ -86,6 +86,10 @@ geth init --datadir node2 genesis.json
 ![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_init.png)
 
 **6. For configuring the bootnode**
+- As we are following geth 1.12 stable version, bootnode needs to be installed separately
+```
+sudo apt-get install bootnode
+```
 - Create a key for the bootnode and save it to boot.key in the folder
 ```
 bootnode -genkey boot.key
