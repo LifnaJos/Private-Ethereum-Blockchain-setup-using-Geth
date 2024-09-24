@@ -124,6 +124,7 @@ geth --datadir node1 --port 30306 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68
 ```
 Change the enode://.....discport=30305 to the one which we made a note of earlier.
 Change the public address after --unlock and --miner.ethbase to the node1 public address noted in the first terminal.
+
 ![Node_1_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_1_run.png)
 
 - Node 1 starts mining
@@ -140,6 +141,7 @@ geth --datadir node2 --port 30307 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68
 ```
 Change the enode://.....discport=30305 to the one which we made a note of earlier.
 Change the public address after --unlock to the node2 public address noted in the first terminal.
+
 ![Node_2_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_run.png)
 
 - Node 2, receives the mined details on its terminal
