@@ -71,6 +71,7 @@ Note:
 ![alloc](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/alloc_field.png)
 
 - Edit the **extradata** withe public key of the signer.
+- NOTE: The public Address of the Mining node (the signer) should be entered here. Also remove the beginning two characters "0x" before entering the public address otherwise it will result in error
 - Here, its with the public key of Node 1
 
 ![extra](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/extradata.png)
