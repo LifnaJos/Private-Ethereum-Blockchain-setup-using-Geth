@@ -58,8 +58,10 @@ geth --datadir "node2" account new
 ![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_account.png)
 Note : 
 - This command will prompt you to enter a passphrase and generates Public and Private Keys.
+- 
 - For future reference, save the keypair in the file [**network_keypair.txt**](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/network_keypair)
-- For each node, save the password in a file, **password.txt** : 
+- Important step: For each node, save the password in a file, **password.txt** :
+- Make a note of the public addresses of both node1 and node2, they will be required later
 [Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node1/password)  and   [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node2/password)
 
 **4. Create a **genesis.json** file in the folder, **private_ethereum_setup****
@@ -105,6 +107,7 @@ bootnode -genkey boot.key
 ```
 bootnode -nodekey boot.key -verbosity 9 -addr :30305
 ```
+Make a note of the enode address, it will be required later.
 ![Bootnode](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/bootnode_running.png)
 
 **Note:**
@@ -117,8 +120,10 @@ bootnode -nodekey boot.key -verbosity 9 -addr :30305
 
 **2. On the second Terminal, Run Node 1**
 ```
-geth --datadir node1 --port 30306 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x98608ADf9c785d54f40cDcf6700E990771b19226 --password node1/password --authrpc.port 8551 --miner.etherbase 0x98608ADf9c785d54f40cDcf6700E990771b19226 --mine
+geth --datadir node1 --port 30306 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x98608ADf9c785d54f40cDcf6700E990771b19226 --password node1/password.txt --authrpc.port 8551 --miner.etherbase 0x98608ADf9c785d54f40cDcf6700E990771b19226 --mine
 ```
+Change the enode://.....discport=30305 to the one which we made a note of earlier.
+Change the public address after --unlock and --miner.ethbase to the node1 public address noted in the first terminal.
 ![Node_1_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_1_run.png)
 
 - Node 1 starts mining
@@ -131,8 +136,10 @@ geth --datadir node1 --port 30306 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68
 
 **3. On the third Terminal, Run Node 2**
 ```
-geth --datadir node2 --port 30307 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C --password node2/password --authrpc.port 8552
+geth --datadir node2 --port 30307 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x7B25e791D24A3F5c453A9E5468cF6cEa2243092C --password node2/password.txt --authrpc.port 8552
 ```
+Change the enode://.....discport=30305 to the one which we made a note of earlier.
+Change the public address after --unlock to the node2 public address noted in the first terminal.
 ![Node_2_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_run.png)
 
 - Node 2, receives the mined details on its terminal
@@ -175,7 +182,7 @@ eth.blockNumber
 ```
 eth.getBalance(eth.accounts[0])
 ```
-
+Enter your own public address always
 ``` 
 eth.getBalance("0x98608ADf9c785d54f40cDcf6700E990771b19226")
 ```
