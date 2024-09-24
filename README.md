@@ -67,6 +67,7 @@ Note :
 Note:
 - Download the [genesis.json](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/genesis.json) file from the repository
 - Edit the **alloc** parameter in the file with the public keys of the accounts created
+- The images have a slight error. Do not remove the "0x" when editing the alloc public addresses with your own instead use the entire address with "0x.......etc"
 
 ![alloc](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/alloc_field.png)
 
