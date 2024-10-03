@@ -58,11 +58,12 @@ geth --datadir "node2" account new
 ![Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_2_account.png)
 Note : 
 - This command will prompt you to enter a passphrase and generates Public and Private Keys.
-- 
 - For future reference, save the keypair in the file [**network_keypair.txt**](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/network_keypair)
-- Important step: For each node, save the password in a file, **password.txt** :
-- Make a note of the public addresses of both node1 and node2, they will be required later
-[Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node1/password)  and   [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node2/password)
+- **Important step:**
+  - For each node, save the password in a file, **password.txt** :
+  - Make a note of the public addresses of both node1 and node2, they will be required later
+    - [Node_1](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node1/password)
+    - [Node_2](https://github.com/LifnaJos/private_ethereum_setup/blob/main/private_ethereum_setup/node2/password)
 
 **4. Create a **genesis.json** file in the folder, **private_ethereum_setup****
 
@@ -74,7 +75,9 @@ Note:
 ![alloc](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/alloc_field.png)
 
 - Edit the **extradata** withe public key of the signer.
-- NOTE: The public Address of the Mining node (the signer) should be entered here. Also remove the beginning two characters "0x" before entering the public address otherwise it will result in error
+  - NOTE:
+    - The public Address of the Mining node (the signer) should be entered here.
+    - Also remove the beginning two characters "0x" before entering the public address otherwise it will result in error
 - Here, its with the public key of Node 1
 
 ![extra](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/extradata.png)
@@ -122,8 +125,8 @@ Make a note of the enode address, it will be required later.
 ```
 geth --datadir node1 --port 30306 --bootnodes enode://2bccaf4b4cf5d10f0e8b49cb68b3c3ad867b6cb40596c78a8b216ae8dd62a174457b9d8839364074047f749914e84b999b92485e988510edca153341a6f6107a@127.0.0.1:0?discport=30305 --networkid 123454321 --unlock 0x98608ADf9c785d54f40cDcf6700E990771b19226 --password node1/password.txt --authrpc.port 8551 --miner.etherbase 0x98608ADf9c785d54f40cDcf6700E990771b19226 --mine
 ```
-Change the enode://.....discport=30305 to the one which we made a note of earlier.
-Change the public address after --unlock and --miner.ethbase to the node1 public address noted in the first terminal.
+- Change the enode://.....discport=30305 to the one which we made a note of earlier.
+- Change the public address after --unlock and --miner.ethbase to the node1 public address noted in the first terminal.
 
 ![Node_1_run](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/node_1_run.png)
 
@@ -273,7 +276,8 @@ txpool.status
 ```
 txpool.contentFrom("0x98608ADf9c785d54f40cDcf6700E990771b19226")
 ```
-**Note:** 0x98608ADf9c785d54f40cDcf6700E990771b19226 : Public address of the account in Node
+**Note:** 
+- 0x98608ADf9c785d54f40cDcf6700E990771b19226 : Public address of the account in Node
 
 ![Geth_explore](https://github.com/LifnaJos/private_ethereum_setup/blob/main/images/geth_explore_9.png)
 
